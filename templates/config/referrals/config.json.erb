@@ -1,0 +1,34 @@
+{
+	"development": {
+		"username": "<%= @config['database']['user'] %>",
+		"password": "<%= @config['database']['password'] %>",
+		"database": "referral",
+		"host": "<%= @config['database']['host'] %>",
+		"port": "<%= @config['database']['port'] %>",
+		"dialect": "mysql"
+	},
+	"test": {
+		"username": "<%= @config['database']['user'] %>",
+		"password": "<%= @config['database']['password'] %>",
+		"database": "referral",
+		"host": "<%= @config['database']['host'] %>",
+		"port": "<%= @config['database']['port'] %>",
+		"dialect": "mysql"
+	},
+	"production": {
+		"username": "<%= @config['database']['user'] %>",
+		"password": "<%= @config['database']['password'] %>",
+		"database": "referral",
+		"host": "<%= @config['database']['host'] %>",
+		"port": "<%= @config['database']['port'] %>",
+		"dialect": "mysql"
+	},
+	"rabbit": "amqp://rabbitmq:5672",
+	"adminApi": {
+		"apiKey": "df55ede2c4690be5",
+		"apiKeySecret": "92650b763d48e41dc4d1ae37264ee75b"
+	},
+	"peatioAPIUrl": "https://<%= @config['app']['subdomain'] %>.<%= @config['app']['domain'] %>/api/v2/peatio",
+	"barongAPIUrl": "http://barong:8001",
+	"BARONG_DB": "barong_production"
+}

@@ -1,0 +1,49 @@
+version: '3.6'
+
+services:
+  parity:
+    image: openethereum/openethereum:v3.3.0-rc.8
+    restart: always
+    command: |
+      --chain=mainnet
+      --mode=active
+      --min-peers=25
+      --max-peers=150
+      --snapshot-peers=10
+      --jsonrpc-apis=all
+      --jsonrpc-hosts=all
+      --jsonrpc-cors=all
+      --no-persistent-txqueue
+      --db-compaction=ssd
+      --interface=all
+      --jsonrpc-interface=0.0.0.0
+      --db-path=/home/openethereum/.local/share/openethereum/db/
+      --base-path=/home/openethereum/.local/share/openethereum
+    volumes:
+      - ../data/parity:/home/openethereum/.local/share/openethereum
+    ports:
+      - "127.0.0.1:8545:8545"
+    deploy:
+      placement:
+        constraints: [node.labels.crypto == eth] 
+
+
+
+  bitcoind:
+    image: quay.io/openware/bitcoind:0.19.1
+    restart: always
+    user: root
+    command: bitcoind
+    volumes:
+      - ../data/bitcoin:/bitcoin
+      - ../config/bitcoin.conf:/bitcoin/.bitcoin/bitcoin.conf
+    deploy:
+      placement:
+        constraints: [node.labels.crypto == btc]
+
+#  litecoind:
+#    image: quay.io/openware/litecoind:0.16.3
+#    restart: always
+#    volumes:
+#      - ../data/litecoin:/litecoin
+#      - ../config/litecoin.conf:/litecoin/litecoin.conf

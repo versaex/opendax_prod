@@ -1,0 +1,14 @@
+deploy-manager:
+    stage: build
+    script:
+      - sudo -u root bash /root/opendax-prod/deploy.sh
+    tags:
+      - manager
+  
+deploy-node-1:
+    stage: build
+    script:
+      - sudo -u root bash /root/opendax-prod/deploy.sh
+      
+    tags:
+      - node-1

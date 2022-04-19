@@ -1,0 +1,21 @@
+{
+    "peatioURL": "<%= ssl_helper('http') %>://<%= @config['app']['subdomain'] %>.<%= @config['app']['domain'] %>/api/v2/peatio/",
+    "barongURL": "<%= ssl_helper('http') %>://<%= @config['app']['subdomain'] %>.<%= @config['app']['domain'] %>/api/v2/barong/",
+    "referralURL": "<%= ssl_helper('http') %>://<%= @config['app']['subdomain'] %>.<%= @config['app']['domain'] %>/api/v2/referrals/",    
+    "rangerURL": "<%= ssl_helper('ws') %>://<%= @config['app']['subdomain'] %>.<%= @config['app']['domain'] %>/api/v2/ranger/",
+    "barongDB": {
+        "host": "<%= @config['database']['host'] %>",
+        "user": "<%= @config['database']['user'] %>",
+        "password": "<%= @config['database']['password'] %>",
+        "database": "barong_production",
+        "port": "<%= @config['database']['port'] %>"
+    },
+    "peatioDB": {
+        "host": "<%= @config['database']['host'] %>",
+        "user": "<%= @config['database']['user'] %>",
+        "password": "<%= @config['database']['password'] %>",
+        "database": "peatio_production",
+        "port": "<%= @config['database']['port'] %>"
+    }
+}
+

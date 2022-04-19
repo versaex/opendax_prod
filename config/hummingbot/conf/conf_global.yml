@@ -1,0 +1,161 @@
+########################################################
+###       Pure market making strategy config         ###
+########################################################
+
+template_version: 6
+
+# The following configuations are only required for the
+# pure market making strategy
+
+# Exchange and token parameters
+maker_market:
+maker_market_trading_pair:
+
+# size of each order
+order_amount:
+
+# How far away from mid price to place the bid order
+# Expressed in decimals : 0.01 = 1% away from mid price at that time
+# Example if mid price is 100 and bid_place threshold is 0.01
+# Your bid is placed at 99
+bid_place_threshold:
+
+# How far away from mid price to place the ask order
+# Expressed in decimals : 0.01 = 1% away from mid price at that time
+# Example if mid price is 100 and ask_place threshold is 0.01
+# Your bid is placed at 101
+ask_place_threshold:
+
+# Ox ONLY - Sets the expiration of limit orders. Minimum is 130 seconds.
+expiration_seconds:
+
+# Time in seconds before cancelling and rerunning strategy
+# If tick size is 60, the bot cancels active orders and reruns after a minute
+cancel_order_wait_time:
+
+# If you want to have single or multiple bids and asks on each side
+mode:
+
+# If you have multiple orders number of orders you want to place on one side of the orderbook
+number_of_orders:
+
+# Size of the first bid and ask order for multiple order mode
+order_start_size:
+
+# Increment size of consecutive orders after the first order in multiple order mode
+order_step_size:
+
+# Spacing between orders in multiple order mode
+order_interval_percent:
+
+# Toggle enabling of Inventory skew
+inventory_skew_enabled:
+
+# Target base asset inventory percentage target to be maintained
+inventory_target_base_percent:
+
+# How long to wait before placing the next order in case your order gets filled for single order mode
+filled_order_replenish_wait_time:
+
+# Do you want to stop cancellations of orders on the other side when one side is filled
+enable_order_filled_stop_cancellation:
+
+# Do you want to enable best bid ask jumping mode
+best_bid_ask_jump_mode:
+
+# If best_bid_ask_jump_mode is True, what is the depth in base currency to be used for finding top bid and ask
+best_bid_ask_jump_orders_depth:
+
+# Parameter to enable/disable adding transaction costs to order prices
+add_transaction_costs:
+
+# If external price source will be used for the mid price, true or false.
+external_pricing_source:
+
+# The type of external pricing source (exchange/feed/custom_api).
+external_price_source_type:
+
+# An external exchange name (for external exchange pricing source)
+external_price_source_exchange:
+
+# A base asset (for external feed pricing source), e.g. ETH
+external_price_source_feed_base_asset:
+
+# A quote asset (for external feed pricing source), e.g. USD
+external_price_source_feed_quote_asset:
+
+# An external api that returns price (for external custom_api pricing source)
+external_price_source_custom_api:
+
+# Include orders that will immediately match on the exchange? (Default is False)
+include_matching_orders:
+client_id: 0127f0f08003fa27e4e04c37d09078fb5393b0b4
+log_level: INFO
+debug_console: false
+strategy_report_interval: 900.0
+reporting_aggregation_interval: 60.0
+reporting_log_interval: 60.0
+logger_override_whitelist:
+- hummingbot.strategy
+- hummingbot.market
+- hummingbot.wallet
+- conf
+key_file_path: conf/
+log_file_path: logs/
+paper_trade_enabled: false
+paper_trade_account_balance:
+- - USDT
+  - 3000
+- - ONE
+  - 1000
+- - BTC
+  - 1
+- - ETH
+  - 10
+- - WETH
+  - 10
+- - USDC
+  - 3000
+- - TUSD
+  - 3000
+- - PAX
+  - 3000
+openware_api_url: https://trade.mobidax.io/api/v2/peatio
+openware_ranger_url: wss://trade.mobidax.io/api/v2/rango
+trading_pair_splitter: ETH|USD
+bamboo_relay_use_coordinator: false
+bamboo_relay_pre_emptive_soft_cancels: false
+ethereum_rpc_url:
+ethereum_chain_name: MAIN_NET
+ethereum_token_overrides: {}
+on_chain_cancel_on_exit: false
+exchange_rate_conversion:
+- - USD
+  - 1.0
+  - manual
+- - DAI
+  - 1.0
+  - coin_gecko_api
+- - USDT
+  - 1.0
+  - coin_gecko_api
+- - USDC
+  - 1.0
+  - coin_gecko_api
+- - TUSD
+  - 1.0
+  - coin_gecko_api
+exchange_rate_fetcher:
+- - ETH
+  - coin_gecko_api
+- - DAI
+  - coin_gecko_api
+kill_switch_enabled: false
+kill_switch_rate:
+telegram_enabled:
+telegram_token:
+telegram_chat_id:
+exchange_rate_default_data_feed:
+
+# For more detailed information, see:
+# https://docs.hummingbot.io/strategies/pure-market-making/#configuration-parameters
